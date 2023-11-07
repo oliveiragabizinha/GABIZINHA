@@ -1,25 +1,32 @@
 <?php
-class Cliente extends Conta {
-    private $idade;
-    private $dataConta;
+class Cliente {
+    private string $nome;
+    private string $dataConta;
+    private Conta $conta;
     
-    public function __construct(int $numero,float $saldo, string $nome, int $idade, string $dataConta) {
-        parent::__construct($numero, $nome, $saldo);
-        $this->definirIdade($idade);
-        $this->definirDataConta($dataConta);
+    public function __construct($nome, $dataConta, $conta) {
+        $this->definirNome($nome);
+        $this->definirData($dataConta);
+        $this->definirConta($conta);
     }
 
-    public function definirIdade($idade) {
-        $this->idade = $idade;
+    public function definirNome(string $nome) {
+        $this->nome = $nome;
     }
-    public function retornarIdade() {
-        return $this->idade;
-    }
-    public function definirDataConta($dataConta) {
+    public function definirData(string $dataConta) {
         $this->dataConta = $dataConta;
     }
-    public function retornarDataConta() {
-        return $this->dataConta;
+    public function definirConta(Conta $conta) {
+        $this->conta = $conta;
+    }
+    public function retornarNome() {
+        return $this->nome;
+    }
+    public function retornarData() {
+        return $this->dataNasci;
+    }
+    public function retornarConta() {
+        return $this->conta;
     }
     
 }
